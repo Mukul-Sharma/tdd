@@ -28,7 +28,7 @@ class QuickSortStrategy extends BaseSortStrategy {
                 j--;
             }
 
-            if (i < j) {
+            if (i <= j) {
                 int temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
