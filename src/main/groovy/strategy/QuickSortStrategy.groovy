@@ -1,5 +1,4 @@
 package strategy
-
 /**
  * Created by mukuls-webonise on 19/8/16.
  */
@@ -42,7 +41,8 @@ class QuickSortStrategy extends BaseSortStrategy {
 
     }
 
-    private static int pivot(int[] array, int low, high) {
+    public static int pivot(int[] array, int low, int high) {
+        if (low > high || null == array || array.length < high - 1) throw new Exception("Invalid Arguments")
         int middle = low + ((high - low) / 2);
         int pivot = array[middle];
         return pivot

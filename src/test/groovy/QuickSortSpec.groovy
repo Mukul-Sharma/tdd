@@ -5,11 +5,11 @@ import strategy.SortingStrategy
 /**
  * Created by mukuls-webonise on 19/8/16.
  */
-class SortSpec extends Specification {
+class QuickSortSpec extends Specification {
 
-    SortingStrategy strategy = new QuickSortStrategy()
+    QuickSortStrategy strategy = new QuickSortStrategy()
 
-    def "given a small array, it should get sorted" () {
+    def "given a small positive array, it should get sorted" () {
         when:
 
         int[] toSort = [3, 1, 2]
@@ -19,7 +19,7 @@ class SortSpec extends Specification {
         toSort == [1, 2, 3] as int[]
     }
 
-    def "given a big array, it should get sorted" () {
+    def "given a big positive array, it should get sorted" () {
         when:
 
         int[] toSort = [3, 1, 2, 4, 6, 3, 56, 3, 5, 2, 1, 6, 2, 1, 6, 1]
@@ -56,5 +56,35 @@ class SortSpec extends Specification {
         empty == emptySorted
         singleItem == singleSorted
 
+    }
+
+    def "given a negative array, is should be sorted" () {
+        when:
+
+        int[] toSort = [-3, -1, -2]
+        strategy.sort(toSort)
+
+        then: "Array is sorted"
+        toSort == [-3, -2, -1] as int[]
+    }
+
+    def "given an incorrect length pivot should throw exception" () {
+        when:
+
+        strategy.pivot(new int[2], 1, 0)
+
+        then: "Exception is thrown"
+
+        thrown Exception
+    }
+
+    def "given an array pivot should be middle element" () {
+        when:
+
+        int[] toSort = [3, 1, 2, 4, 5]
+        int pivot = strategy.pivot(toSort, 0, 4)
+
+        then: "Pivot is 2"
+        pivot == 2
     }
 }
