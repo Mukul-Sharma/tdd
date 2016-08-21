@@ -8,10 +8,10 @@ class MergeSortStrategy extends BaseSortStrategy {
 
     @Override
     int[] sortImpl(int[] what) {
-        int n = what.length
+        int n = what.length - 1
         int half = n / 2
         int[] l1 = what[0..half]
-        int[] l2 = what[half + 1..n]
+        int[] l2 = what[(half + 1)..n]
 
         l1 = sort(l1)
         l2 = sort(l2)
@@ -26,6 +26,9 @@ class MergeSortStrategy extends BaseSortStrategy {
 
 
     public static int[] merge(int[] a, int[] b) {
+        if (null == a || null == b) {
+            throw new Exception("Input cannot be null")
+        }
         int[] mergeTarget = new int[a.length + b.length];
 
         int aIndex = 0
