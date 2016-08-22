@@ -33,4 +33,18 @@ class SorterSpec extends Specification {
         then:
         (sorter.strategy instanceof QuickSortStrategy)
     }
+
+    def "given a sorter, it should call sort method of strategy when sort is called" () {
+        int[] input = [1]
+        SortingStrategy strategy =  Mock(SortingStrategy)
+        strategy.sort(input) >> {input}
+
+        when:
+        Sorter sorter = new Sorter(strategy)
+        sorter.sort(input)
+
+        then:
+        1 * strategy.sort(input)
+
+    }
 }
