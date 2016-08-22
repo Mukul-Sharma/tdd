@@ -10,6 +10,14 @@ import strategy.SortingStrategy
  */
 class SorterSpec extends Specification {
 
+    def "given sorting strategy is null, exception should be thrown" () {
+        when:
+        new Sorter(null)
+
+        then:
+        thrown Exception
+    }
+
     def "given a sorting strategy it should be set properly"() {
         when:
 
