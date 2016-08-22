@@ -1,6 +1,5 @@
 package sorter
 
-import strategy.MergeSortStrategy
 import strategy.SortingStrategy
 
 /**

@@ -1,4 +1,3 @@
-import com.sun.xml.internal.bind.v2.model.annotation.Quick
 import sorter.Sorter
 import spock.lang.Specification
 import strategy.MergeSortStrategy
