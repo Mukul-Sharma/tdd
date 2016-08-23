@@ -9,18 +9,6 @@ class MergeSortSpec extends Specification {
 
     MergeSortStrategy strategy = new MergeSortStrategy()
 
-    def "given two array merge is done correctly"() {
-
-        when:
-        int[] a = [1, 3, 4]
-        int[] b = [2, 5, 6]
-
-        int[] merged = MergeSortStrategy.merge(a, b)
-
-        then: "Merge is done in sorted order"
-        merged == [1, 2, 3, 4, 5, 6] as int[]
-    }
-
     def "given a small positive array, it should get sorted" () {
         when:
 

@@ -41,9 +41,9 @@ class QuickSortStrategy extends BaseSortStrategy {
 
     }
 
-    public static int pivot(int[] array, int low, int high) {
-        if (low > high || null == array || array.length < high - 1) throw new Exception("Invalid Arguments")
-        int middle = low + ((high - low) / 2);
+    public static int pivot(int[] array, int start, int end) {
+        if (start > end || null == array || array.length < end - 1) throw new Exception("Invalid Arguments")
+        int middle = start + ((end - start) / 2);
         int pivot = array[middle];
         return pivot
     }

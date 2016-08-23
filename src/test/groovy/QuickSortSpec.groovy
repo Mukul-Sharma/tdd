@@ -68,23 +68,4 @@ class QuickSortSpec extends Specification {
         toSort == [-3, -2, -1] as int[]
     }
 
-    def "given an incorrect length pivot should throw exception" () {
-        when:
-
-        strategy.pivot(new int[2], 1, 0)
-
-        then: "Exception is thrown"
-
-        thrown Exception
-    }
-
-    def "given an array pivot should be middle element" () {
-        when:
-
-        int[] toSort = [3, 1, 2, 4, 5]
-        int pivot = strategy.pivot(toSort, 0, 4)
-
-        then: "Pivot is 2"
-        pivot == 2
-    }
 }
